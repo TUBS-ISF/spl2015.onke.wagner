@@ -1,0 +1,27 @@
+# Lists all features from the model with manual (first digit) and automatic (second digit) selection
+# 0 = deselected, 1 = selected, 2 = undefined
+21Chat
+21Server
+22Portnummer
+22Event Log
+22Chat Raum
+21Visualisierung
+12GUI
+22Konsole
+21Client
+22Port Nummer
+21Login
+11Username
+22Server Adresse
+21Chatraum
+22Teilnehmerliste
+22Sortieren
+22Aufsteigend
+22Absteigend
+12Hintergrundfarbe
+12Schriftfarbe
+22Emoticons
+21Nutzeraccount
+22Bild
+11E-Mail Adresse
+11Passwort

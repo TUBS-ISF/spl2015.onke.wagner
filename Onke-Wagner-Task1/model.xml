@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and abstract="true" mandatory="true" name="Chat">
+				<description>
+					Ein einfacher Chat in Java
+				</description>
+				<and abstract="true" mandatory="true" name="Server">
+					<description>
+						Der Server für den Chat
+					</description>
+					<feature name="Portnummer">
+						<description>
+							Portnummer sollte vom Admin eingegeben werden können
+						</description>
+					</feature>
+					<feature name="Event Log">
+						<description>
+							Benachrichtigungen über neue Teilnehmer etc. 
+						</description>
+					</feature>
+					<feature name="Chat Raum">
+						<description>
+							Chatverlauf der Teilnehmer auch dem Admin anzeigen
+						</description>
+					</feature>
+				</and>
+				<or abstract="true" mandatory="true" name="Visualisierung">
+					<description>
+						Chat entweder über eine GUI oder über Konsole bedienen
+					</description>
+					<feature mandatory="true" name="GUI">
+						<description>
+							Graphisches User Interface
+						</description>
+					</feature>
+					<feature mandatory="true" name="Konsole">
+						<description>
+							Server und Client über Konsole bedienen
+						</description>
+					</feature>
+				</or>
+				<and abstract="true" mandatory="true" name="Client">
+					<description>
+						Der Client für den Chat
+					</description>
+					<feature name="Port Nummer"/>
+					<and abstract="true" name="Login">
+						<description>
+							Login mittels Username
+						</description>
+						<feature mandatory="true" name="Username">
+							<description>
+								Username für den Login; Default: Anonymous
+							</description>
+						</feature>
+					</and>
+					<feature name="Server Adresse">
+						<description>
+							Die Adresse des Servers, mit dem Verbunden werden soll
+						</description>
+					</feature>
+					<and abstract="true" mandatory="true" name="Chatraum">
+						<description>
+							Der eigentliche Chat zwischen Teilnehmern wird hier angezeigt
+						</description>
+						<and name="Teilnehmerliste">
+							<description>
+								Alle Teilnehmer des Chats anzeigen
+							</description>
+							<alt abstract="true" name="Sortieren">
+								<description>
+									Teilnehmerliste nach Nutzernahme sortieren
+								</description>
+								<feature mandatory="true" name="Aufsteigend">
+									<description>
+										Teilnehmerliste alphabetisch aufsteigend sortieren 
+									</description>
+								</feature>
+								<feature mandatory="true" name="Absteigend">
+									<description>
+										Teilnehmerliste alphabetisch absteigend sortieren 
+									</description>
+								</feature>
+							</alt>
+						</and>
+						<feature name="Hintergrundfarbe">
+							<description>
+								Hintergrundfarbe einstellen
+							</description>
+						</feature>
+						<feature name="Schriftfarbe">
+							<description>
+								Schriftfarbe einstellen
+							</description>
+						</feature>
+						<feature name="Emoticons">
+							<description>
+								Emoticons benutzen
+							</description>
+						</feature>
+					</and>
+					<and abstract="true" name="Nutzeraccount">
+						<description>
+							Nutzeraccount haben. Dann muss auch Login vorhanden sein, sonst unnötig
+						</description>
+						<feature name="Bild">
+							<description>
+								Option, ein Bild hochzuladen
+							</description>
+						</feature>
+						<feature mandatory="true" name="E-Mail Adresse">
+							<description>
+								E-Mail Adresse muss hinterlegt sein
+							</description>
+						</feature>
+						<feature mandatory="true" name="Passwort">
+							<description>
+								Ein Passwort muss für den Nutzer hinterlegt sein
+							</description>
+						</feature>
+					</and>
+				</and>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>Nutzeraccount</var>
+					<var>Login</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Teilnehmerliste</var>
+					<var>Username</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Port Nummer</var>
+					<var>Portnummer</var>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
