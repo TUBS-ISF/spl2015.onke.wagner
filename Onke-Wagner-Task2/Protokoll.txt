@@ -1,0 +1,41 @@
+Aufzuführen sind: client.java und server.java (erst Server, dann Client...)
+In beiden Dateien ist entweder die Eigenschaft "GUI" oder "Console" auf true zu setzen (main-Methode).
+
+Ausgeführte Tests
+
+client.java
+Variable 		| Wert	| Erwartetes Ergebnis	| Tatsächliches Ergebnis
+################|#######|#######################|#######################
+clientGui		| true 	| Die Gui des Clients	| Die Gui des Clients
+clientConsole	| false	| wird gestartet.		| wurde gestartet
+################|#######|#######################|#######################
+clientGui		| false | Der Client startet	| Der Client startete
+clientConsole	| true	| auf der Konsole		| auf der Konsole
+################|#######|#######################|#######################
+clientGui		| false | Es wird eine Meldung 	| Es wurde eine entsprechende
+clientConsole	| false	| ausgegeben, dass beide| Meldung ausgegeben
+				|		| Variablen false sind	|
+################|#######|#######################|#######################
+clientGui		| true	| Es wird eine Meldung	| Es wurde eine entsprechende
+clientConsole	| true	| ausgegeben, dass beide| Meldung ausgegeben
+				|		| Variablen true sind	|
+################|#######|#######################|#######################
+
+server.java
+Variable 		| Wert	| Erwartetes Ergebnis	| Tatsächliches Ergebnis
+################|#######|#######################|#######################
+serverGui		| true 	| Die Gui des Servers	| Die Gui des Servers
+serverConsole	| false	| wird gestartet.		| wurde gestartet
+################|#######|#######################|#######################
+serverGui		| false | Der Server startet	| Der Server startete
+serverConsole	| true	| auf der Konsole		| auf der Konsole
+################|#######|#######################|#######################
+serverGui		| false | Es wird eine Meldung 	| Es wurde eine entsprechende
+serverConsole	| false	| ausgegeben, dass beide| Meldung ausgegeben
+				|		| Variablen false sind	|
+################|#######|#######################|#######################
+serverGui		| true	| Es wird eine Meldung	| Es wurde eine entsprechende
+serverConsole	| true	| ausgegeben, dass beide| Meldung ausgegeben
+				|		| Variablen true sind	|
+################|#######|#######################|#######################
+				
