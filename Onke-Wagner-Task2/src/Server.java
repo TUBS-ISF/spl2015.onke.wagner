@@ -156,10 +156,14 @@ public class Server {
 	 */
 	public static void main(String[] args) {
 		// Parameter for Task2 - Laufzeitparameter
-		final boolean serverGui = true;
-		final boolean serverConsole = false;
-
-		if (serverConsole) {
+		final boolean serverGui = false;
+		final boolean serverConsole = true;
+		
+		if (serverGui && serverConsole) {
+			System.out.println("serverGui and serverConsole are both true");
+		} else if (!serverGui && !serverConsole) {
+			System.out.println("serverGui and serverConsole are both false");
+		} else if (serverConsole) {
 			// start server on port 1500 unless a PortNumber is specified
 			int portNumber = 1500;
 			switch (args.length) {
@@ -181,8 +185,7 @@ public class Server {
 			// create a server object and start it
 			Server server = new Server(portNumber);
 			server.start();
-		}
-		if(serverGui){
+		} else if (serverGui) {
 			// start server default port 1500
 			new ServerGUI(1500);
 		}

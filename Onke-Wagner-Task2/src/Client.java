@@ -145,15 +145,19 @@ public class Client {
 	 */
 	public static void main(String[] args) {
 		// Parameter for Task2 - Laufzeitparameter
-		final boolean clientGui = true;
-		final boolean clientConsole = false;
-		
+		final boolean clientGui = false;
+		final boolean clientConsole = true;
+
 		// default values
 		int portNumber = 1500;
 		String serverAddress = "localhost";
 		String userName = "Anonymous";
 
-		if (clientConsole) {
+		if (clientGui && clientConsole) {
+			System.out.println("clientGui and clientConsole are both true");
+		} else if (!clientGui && !clientConsole) {
+			System.out.println("clientGui and clientConsole are both false");
+		} else if (clientConsole) {
 			// depending of the number of arguments provided we fall through
 			switch (args.length) {
 			// > javac Client username portNumber serverAddr
@@ -210,8 +214,7 @@ public class Client {
 			}
 			// done disconnect
 			client.disconnect();
-		}
-		if (clientGui) {
+		} else if (clientGui) {
 			new ClientGUI("localhost", 1500);
 		}
 	}
