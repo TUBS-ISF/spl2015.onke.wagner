@@ -4,38 +4,38 @@ In beiden Dateien ist entweder die Eigenschaft "GUI" oder "Console" auf true zu 
 Ausgeführte Tests
 
 client.java
-Variable 		| Wert	| Erwartetes Ergebnis	| Tatsächliches Ergebnis
+Variable 	| Wert	| Erwartetes Ergebnis	| Tatsächliches Ergebnis
 ################|#######|#######################|#######################
-clientGui		| true 	| Die Gui des Clients	| Die Gui des Clients
-clientConsole	| false	| wird gestartet.		| wurde gestartet
+clientGui	| true 	| Die Gui des Clients	| Die Gui des Clients
+clientConsole	| false	| wird gestartet.	| wurde gestartet
 ################|#######|#######################|#######################
-clientGui		| false | Der Client startet	| Der Client startete
-clientConsole	| true	| auf der Konsole		| auf der Konsole
+clientGui	| false | Der Client startet	| Der Client startete
+clientConsole	| true	| auf der Konsole	| auf der Konsole
 ################|#######|#######################|#######################
-clientGui		| false | Es wird eine Meldung 	| Es wurde eine entsprechende
+clientGui	| false | Es wird eine Meldung 	| Es wurde eine entsprechende
 clientConsole	| false	| ausgegeben, dass beide| Meldung ausgegeben
-				|		| Variablen false sind	|
+		|	| Variablen false sind	|
 ################|#######|#######################|#######################
-clientGui		| true	| Es wird eine Meldung	| Es wurde eine entsprechende
+clientGui	| true	| Es wird eine Meldung	| Es wurde eine entsprechende
 clientConsole	| true	| ausgegeben, dass beide| Meldung ausgegeben
-				|		| Variablen true sind	|
+		|	| Variablen true sind	|
 ################|#######|#######################|#######################
 
 server.java
-Variable 		| Wert	| Erwartetes Ergebnis	| Tatsächliches Ergebnis
+Variable 	| Wert	| Erwartetes Ergebnis	| Tatsächliches Ergebnis
 ################|#######|#######################|#######################
-serverGui		| true 	| Die Gui des Servers	| Die Gui des Servers
-serverConsole	| false	| wird gestartet.		| wurde gestartet
+serverGui	| true 	| Die Gui des Servers	| Die Gui des Servers
+serverConsole	| false	| wird gestartet.	| wurde gestartet
 ################|#######|#######################|#######################
-serverGui		| false | Der Server startet	| Der Server startete
+serverGui	| false | Der Server startet	| Der Server startete
 serverConsole	| true	| auf der Konsole		| auf der Konsole
 ################|#######|#######################|#######################
-serverGui		| false | Es wird eine Meldung 	| Es wurde eine entsprechende
+serverGui	| false | Es wird eine Meldung 	| Es wurde eine entsprechende
 serverConsole	| false	| ausgegeben, dass beide| Meldung ausgegeben
-				|		| Variablen false sind	|
+		|	| Variablen false sind	|
 ################|#######|#######################|#######################
-serverGui		| true	| Es wird eine Meldung	| Es wurde eine entsprechende
+serverGui	| true	| Es wird eine Meldung	| Es wurde eine entsprechende
 serverConsole	| true	| ausgegeben, dass beide| Meldung ausgegeben
-				|		| Variablen true sind	|
+		|	| Variablen true sind	|
 ################|#######|#######################|#######################
 				
