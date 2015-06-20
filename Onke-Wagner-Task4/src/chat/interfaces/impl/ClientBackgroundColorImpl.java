@@ -2,24 +2,36 @@ package chat.interfaces.impl;
 
 import java.awt.Color;
 
-import chat.interfaces.ClientBackgroundColor;
+import chat.interfaces.ClientColor;
 
-public class ClientBackgroundColorImpl implements ClientBackgroundColor {
+public class ClientBackgroundColorImpl implements ClientColor {
 
 	@Override
-	public Color setBackgroundColorWhite() {
+	public Color getColorWhite() {
 		return Color.WHITE;
 	}
 
-	@Override
-	public Color setBackgroundColorGreen() {
+	public Color getColorGreen() {
 		return Color.GREEN;
 	}
 
+	@Override
+	public Color getColorBlue() {
+		return Color.BLUE;
+	}
 
 	@Override
-	public Color setBackgroundColorBlue() {
-		return Color.BLUE;
+	public Color getColorBlack() {
+		return Color.BLACK;
+	}
+
+	@Override
+	public Color getColorRed() {
+		return Color.RED;
+	}
+
+	public Color getColorYellow() {
+		return Color.YELLOW;
 	}
 
 }

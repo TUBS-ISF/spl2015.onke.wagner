@@ -2,27 +2,37 @@ package chat.interfaces.impl;
 
 import java.awt.Color;
 
-import chat.interfaces.ClientFontColor;
+import chat.interfaces.ClientColor;
 
-public class ClientFontColorImpl implements ClientFontColor {
+public class ClientFontColorImpl implements ClientColor {
 	@Override
-	public Color setFontColorBlack() {
+	public Color getColorBlack() {
 		return Color.BLACK;
 	}
 
 	@Override
-	public Color setFontColorWhite() {
+	public Color getColorWhite() {
 		return Color.WHITE;
 	}
 
-	@Override
-	public Color setFontColorYellow() {
+	
+	public Color getColorYellow() {
 		return Color.YELLOW;
 	}
 
 	@Override
-	public Color setFontColorRed() {
+	public Color getColorRed() {
 		return Color.RED;
+	}
+
+	
+	public Color getColorGreen() {
+		return Color.GREEN;
+	}
+
+	@Override
+	public Color getColorBlue() {
+		return Color.BLUE;
 	}
 
 }

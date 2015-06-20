@@ -2,8 +2,7 @@ package chat.client;
 
 import javax.swing.*;
 
-import chat.interfaces.ClientBackgroundColor;
-import chat.interfaces.ClientFontColor;
+import chat.interfaces.ClientColor;
 import chat.interfaces.ClientServerAddress;
 import chat.util.ChatMessage;
 
@@ -35,12 +34,12 @@ public class ClientGUI extends JFrame implements ActionListener {
 	private String defaultHost;
 	// plugins
 	private ClientServerAddress clientAddressPlugin;
-	private ClientBackgroundColor backgroundPlugin;
-	private ClientFontColor fontColorPlugin;
+	private ClientColor backgroundColorPlugin;
+	private ClientColor fontColorPlugin;
 
-	public ClientGUI(ClientServerAddress serverAddress, ClientBackgroundColor backgroundColor, ClientFontColor fontColor) {
+	public ClientGUI(ClientServerAddress serverAddress, ClientColor backgroundColor, ClientColor fontColor) {
 		this.clientAddressPlugin = serverAddress;
-		this.backgroundPlugin = backgroundColor;
+		this.backgroundColorPlugin = backgroundColor;
 		this.fontColorPlugin = fontColor;
 		serverAddress.setClientGUI(this);
 		init();
@@ -85,11 +84,11 @@ public class ClientGUI extends JFrame implements ActionListener {
 		ta = new JTextArea("Welcome to the Chat room\n", 80, 80);
 		JPanel centerPanel = new JPanel(new GridLayout(1, 1));
 		centerPanel.add(new JScrollPane(ta));
-		if (backgroundPlugin != null) {
-			ta.setBackground(backgroundPlugin.setBackgroundColorBlue());
+		if (backgroundColorPlugin != null) {
+			ta.setBackground(backgroundColorPlugin.getColorBlue());
 		}
 		if (fontColorPlugin != null) {
-			ta.setForeground(fontColorPlugin.setFontColorRed());
+			ta.setForeground(fontColorPlugin.getColorRed());
 		}
 		ta.setEditable(false);
 		add(centerPanel, BorderLayout.CENTER);

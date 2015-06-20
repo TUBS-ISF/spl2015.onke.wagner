@@ -1,0 +1,3 @@
+Implementierte Features:
+Server: Portnummer, Eventlog, Chatraum, Gui
+Client: Server Adresse, Schriftfarbe, Hintergrundfarbe, Gui
