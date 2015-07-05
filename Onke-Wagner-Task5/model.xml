@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and abstract="true" mandatory="true" name="OnkeWagnerTask5">
+				<and mandatory="true" name="Chat">
+					<and abstract="true" mandatory="true" name="Server">
+						<alt abstract="true" mandatory="true" name="ServerVisualisierung">
+							<and mandatory="true" name="ServerGUI">
+								<feature name="ServerChatRaum"/>
+								<feature name="ServerPortnummer"/>
+								<feature name="ServerEventLog"/>
+							</and>
+							<feature mandatory="true" name="ServerConsole"/>
+						</alt>
+					</and>
+					<and abstract="true" mandatory="true" name="Client">
+						<and abstract="true" name="Login">
+							<feature abstract="true" mandatory="true" name="Username"/>
+						</and>
+						<feature abstract="true" name="ServerAdresse"/>
+						<and abstract="true" name="ClientChatRaum">
+							<and abstract="true" name="Teilnehmerliste">
+								<alt abstract="true" name="Sortieren">
+									<feature abstract="true" mandatory="true" name="Absteigend"/>
+									<feature abstract="true" mandatory="true" name="Aufsteigend"/>
+								</alt>
+							</and>
+							<feature name="Hintergrundfarbe"/>
+							<feature name="Schriftfarbe"/>
+							<feature abstract="true" name="Emoticons"/>
+						</and>
+						<and abstract="true" name="Nutzeraccount">
+							<feature abstract="true" name="Bild"/>
+							<feature abstract="true" name="EMailAdresse"/>
+							<feature abstract="true" name="Passwort"/>
+						</and>
+						<alt abstract="true" mandatory="true" name="ClientVisualisierung">
+							<feature mandatory="true" name="ClientConsole"/>
+							<feature mandatory="true" name="ClientGUI"/>
+						</alt>
+					</and>
+				</and>
+			</and>
+		</struct>
+		<constraints/>
+		<calculations Auto="false" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
