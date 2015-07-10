@@ -1,0 +1,27 @@
+# Lists all features from the model with manual (first digit) and automatic (second digit) selection
+# 0 = deselected, 1 = selected, 2 = undefined
+21OnkeWagnerTask6
+21Chat
+21Server
+12ServerPortnummer
+12ServerEventLog
+12ServerChatRaum
+21Visualisierung
+20Console
+12Gui
+21Client
+22ClientLogin
+22ClientNutzerName
+12ClientServerAdresse
+21ClientChatRaum
+22ClientTeilnehmerliste
+22Sortieren
+22Aufsteigend
+22Absteigend
+12ClientHintergrundfarbe
+12ClientSchriftfarbe
+12ClientEmoticons
+22ClientNutzerAccount
+22ClientBild
+22ClientEmail
+22ClientPasswort
