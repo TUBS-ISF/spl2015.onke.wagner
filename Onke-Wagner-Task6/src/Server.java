@@ -51,9 +51,7 @@ public class Server {
 			// infinite loop to wait for connections
 			while (keepGoing) {
 				// format message saying we are waiting
-				// #ifdef EventLog
 				display("Server waiting for Clients on port " + port + ".");
-				// #endif
 				Socket socket = serverSocket.accept(); // accept connection
 				// if I was asked to stop
 				if (!keepGoing)
@@ -77,17 +75,13 @@ public class Server {
 					}
 				}
 			} catch (Exception e) {
-				// #ifdef EventLog
 				display("Exception closing the server and clients: " + e);
-				// #endif
 			}
 		}
 		// something went bad
 		catch (IOException e) {
-			// #ifdef EventLog
 			String msg = sdf.format(new Date()) + " Exception on new ServerSocket: " + e + "\n";
 			display(msg);
-			// #endif
 		}
 	}
 
@@ -108,7 +102,6 @@ public class Server {
 	/*
 	 * Display an event (not a message) to the console or the GUI
 	 */
-	// #ifdef EventLog
 	private void display(String msg) {
 		String time = sdf.format(new Date()) + " " + msg;
 		if (sg == null)
@@ -117,8 +110,6 @@ public class Server {
 			sg.appendEvent(time + "\n");
 
 	}
-
-	// #endif
 
 	/*
 	 * to broadcast a message to all Clients
@@ -140,9 +131,7 @@ public class Server {
 			// try to write to the Client if it fails remove it from the list
 			if (!ct.writeMsg(messageLf)) {
 				al.remove(i);
-				// #ifdef EventLog
 				display("Disconnected Client " + ct.username + " removed from list.");
-				// #endif
 			}
 		}
 	}
@@ -166,14 +155,9 @@ public class Server {
 	 * is used
 	 */
 	public static void main(String[] args) {
-			argsNew = args;
-		
+		argsNew = args;
+
 		consoleCall();
-		// start server on port 1500 unless a PortNumber is specified
-		int portNumber = 1500;
-		// #ifdef Console
-		// @ console(portNumber, args);
-		// #endif
 
 	}
 
@@ -182,7 +166,6 @@ public class Server {
 	}
 
 	public static void console(int portNumber, String[] args) {
-		// #ifdef Portnummer
 		switch (args.length) {
 			case 1:
 				try {
@@ -199,7 +182,6 @@ public class Server {
 				return;
 
 		}
-		// #endif
 		// create a server object and start it
 		Server server = new Server(portNumber);
 		server.start();
@@ -233,13 +215,9 @@ public class Server {
 				sInput = new ObjectInputStream(socket.getInputStream());
 				// read the username
 				username = (String) sInput.readObject();
-				// #ifdef EventLog
 				display(username + " just connected.");
-				// #endif
 			} catch (IOException e) {
-				// #ifdef EventLog
 				display("Exception creating new Input/output Streams: " + e);
-				// #endif
 				return;
 			}
 			// have to catch ClassNotFoundException
@@ -258,9 +236,7 @@ public class Server {
 				try {
 					cm = (ChatMessage) sInput.readObject();
 				} catch (IOException e) {
-					// #ifdef EventLog
 					display(username + " Exception reading Streams: " + e);
-					// #endif
 					break;
 				} catch (ClassNotFoundException e2) {
 					break;
@@ -274,9 +250,7 @@ public class Server {
 						broadcast(username + ": " + message);
 						break;
 					case ChatMessage.LOGOUT:
-						// #ifdef EventLog
 						display(username + " disconnected with a LOGOUT message.");
-						// #endif
 						keepGoing = false;
 						break;
 					case ChatMessage.WHOISIN:
@@ -331,10 +305,8 @@ public class Server {
 			}
 			// if an error occurs, do not abort just inform the user
 			catch (IOException e) {
-				// #ifdef EventLog
 				display("Error sending message to " + username);
 				display(e.toString());
-				// #endif
 			}
 			return true;
 		}
