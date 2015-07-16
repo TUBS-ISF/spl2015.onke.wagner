@@ -1,0 +1,13 @@
+Folgende Features sind implementiert:
+1. ServerPortNummer
+2. ServerEventLog
+3. ServerChatRaum
+4. ClientServerAdresse
+5. ClientSchriftfarbe
+6. ClientNutzername
+7. ClientHintergrundfarbe
+8. ClientEmailAdresse
+9. GUI sowohl für Server als auch für Client
+10. Console sowohl für Server als auch für Client
+
+Start über Server.java und Client.java
