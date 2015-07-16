@@ -5,16 +5,16 @@ import javax.swing.JTextField;
 public aspect ClientServerAdresse {
 
 	JTextField tfServer;
-	JPanel serverAndPort;
 
 	pointcut addServerAddress():
-		call(* ClientGUI.addServerAddressField(*));
+		call(* ClientGUI.addServerAddressField());
 
-	after() returning : addServerAddress(){
+	JPanel around() : addServerAddress() {
+		JPanel serverAndPort = proceed();
 		tfServer = new JTextField("localhost");
-		serverAndPort = ClientGUI.serverAndPort;
 		serverAndPort.add(new JLabel("Server Address:  "));
 		serverAndPort.add(tfServer);
+		return serverAndPort;
 	}
 
 }

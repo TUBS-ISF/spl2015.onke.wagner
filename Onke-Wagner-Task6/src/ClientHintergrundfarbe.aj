@@ -3,13 +3,14 @@ import java.awt.Color;
 import javax.swing.JTextArea;
 
 public aspect ClientHintergrundfarbe {
-	JTextArea ta;
 
 	pointcut setBackgroundColor() :
 		execution(* ClientGUI.setBackgroundColor());
 
-	after() : setBackgroundColor() {
-		ta = ClientGUI.ta;
+	JTextArea around() : setBackgroundColor() {
+		JTextArea ta = proceed();
 		ta.setBackground(Color.BLACK);
+		return ta;
 	}
+
 }

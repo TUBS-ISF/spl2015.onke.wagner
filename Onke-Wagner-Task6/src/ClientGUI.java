@@ -12,17 +12,17 @@ public class ClientGUI extends JFrame implements ActionListener {
 	// will first hold "Username:", later on "Enter message"
 	private JLabel label;
 	// to hold the Username and later on the messages
-	private JTextField tf;
+	public JTextField tf, tu;
 	// to hold the server address an the port number
 	public JTextField tfServer, tfPort;
 	// to Logout and get the list of the users
 	private JButton login, logout, whoIsIn;
 	// for the chat room
-	public static JTextArea ta;
+	public JTextArea ta;
 	// if it is for connection
 	private boolean connected;
 
-	public static JPanel serverAndPort;
+	public JPanel serverAndPort;
 
 	// the Client object
 	private Client client;
@@ -38,8 +38,8 @@ public class ClientGUI extends JFrame implements ActionListener {
 		defaultHost = host;
 
 		// The NorthPanel with:
-		JPanel northPanel = new JPanel(new GridLayout(3, 1));
-		// the server name anmd the port number
+		JPanel northPanel = new JPanel(new GridLayout(5, 1));
+		// the server name and the port number
 		serverAndPort = new JPanel(new GridLayout(1, 5, 1, 3));
 		// the two JTextField with default value for server address and port
 		// number
@@ -47,7 +47,7 @@ public class ClientGUI extends JFrame implements ActionListener {
 		tfPort = new JTextField("" + port);
 		tfPort.setHorizontalAlignment(SwingConstants.RIGHT);
 
-		addServerAddressField(serverAndPort);
+		serverAndPort = addServerAddressField();
 
 		serverAndPort.add(new JLabel("Port Number:  "));
 		serverAndPort.add(tfPort);
@@ -61,14 +61,24 @@ public class ClientGUI extends JFrame implements ActionListener {
 		tf = new JTextField("Anonymous");
 		tf.setBackground(Color.WHITE);
 		northPanel.add(tf);
+		// add(northPanel, BorderLayout.NORTH);
+
+		// email-feature (doesnt make sense like this... would need a
+		// registration etc) but i need a 10th feature :)
+		northPanel = addEmail(northPanel);
 		add(northPanel, BorderLayout.NORTH);
+
+		// tu = new JTextField("asasd");
+		// tu.setBackground(Color.WHITE);
+		// northPanel.add(tu);
+		// add(northPanel, BorderLayout.EAST);
 
 		// The CenterPanel which is the chat room
 		ta = new JTextArea("Welcome to the Chat room\n", 80, 80);
 		JPanel centerPanel = new JPanel(new GridLayout(1, 1));
 		centerPanel.add(new JScrollPane(ta));
 		ta.setEditable(false);
-		setBackgroundColor();
+		ta = setBackgroundColor();
 		add(centerPanel, BorderLayout.CENTER);
 
 		// the 3 buttons
@@ -96,12 +106,22 @@ public class ClientGUI extends JFrame implements ActionListener {
 
 	}
 
-	public void setBackgroundColor() {
-
+	public JPanel addEmail(JPanel northPanel) {
+//		label1 = new JLabel("Enter your E-Mail address below", SwingConstants.CENTER);
+//		northPanel.add(label1);
+//		tu = new JTextField("example@example.com");
+//		tu.setBackground(Color.WHITE);
+//		northPanel.add(tu);
+		return northPanel;
 	}
 
-	public void addServerAddressField(JPanel serverAndPort) {
 
+	public JTextArea setBackgroundColor() {
+		return ta;
+	}
+
+	public JPanel addServerAddressField() {
+		return serverAndPort;
 	}
 
 	// called by the Client to append text in the TextArea
@@ -155,15 +175,15 @@ public class ClientGUI extends JFrame implements ActionListener {
 
 		if (o == login) {
 			// ok it is a connection request
-			String username = tf.getText().trim();
+			String username = readUsername(tf);
 			// empty username ignore it
 			if (username.length() == 0)
 				return;
 			// empty serverAddress ignore it
 			String server = null;
-//			server = tfServer.getText().trim();
-//			if (server.length() == 0)
-//				return;
+			// server = tfServer.getText().trim();
+			// if (server.length() == 0)
+			// return;
 			// empty or invalid port numer, ignore it
 			String portNumber = tfPort.getText().trim();
 			if (portNumber.length() == 0)
@@ -190,12 +210,21 @@ public class ClientGUI extends JFrame implements ActionListener {
 			logout.setEnabled(true);
 			whoIsIn.setEnabled(true);
 			// disable the Server and Port JTextField
-//			tfServer.setEditable(false);
+			// tfServer.setEditable(false);
 			tfPort.setEditable(false);
 			// Action listener for when the user enter a message
 			tf.addActionListener(this);
 		}
 
+	}
+
+	public String readUsername(JTextField tf) {
+		getTf(tf);
+		return "anonymous";
+	}
+
+	public JTextField getTf(JTextField tf) {
+		return tf;
 	}
 
 	// to start the whole thing the server

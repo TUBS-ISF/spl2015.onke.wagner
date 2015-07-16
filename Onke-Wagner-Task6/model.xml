@@ -14,7 +14,7 @@
 					</alt>
 					<and abstract="true" mandatory="true" name="Client">
 						<and abstract="true" name="ClientLogin">
-							<feature abstract="true" mandatory="true" name="ClientNutzerName"/>
+							<feature name="ClientNutzerName"/>
 						</and>
 						<feature name="ClientServerAdresse"/>
 						<and abstract="true" name="ClientChatRaum">
@@ -30,7 +30,7 @@
 						</and>
 						<and abstract="true" name="ClientNutzerAccount">
 							<feature abstract="true" name="ClientBild"/>
-							<feature abstract="true" name="ClientEmail"/>
+							<feature name="ClientEmail"/>
 							<feature abstract="true" name="ClientPasswort"/>
 						</and>
 					</and>
